@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Our pets</h1>
+  <% @pets.each do |pet| %>
+    <div class="card mb-3" style="width: 350px;">
+      <%= image_tag "https://source.unsplash.com/featured/?pet&#{rand(1..100)}", class: "card-img-top" %>
+      <div class="card-body">
+        <h2 class="card-title"><%= pet.name %></h2>
+        <p class="card-title"><%= pet.species %></p>
+        <p class="card-title"><%= pet.age %></p>
+        <p class="card-title"><%= pet.address %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
