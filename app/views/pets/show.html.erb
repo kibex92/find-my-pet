@@ -8,4 +8,5 @@
       <p class="card-title"><%= @pet.address %></p>
     </div>
   </div>
+  <%= link_to  "Delete", pet_path(@pet), data: {turbo_method: :delete, turbo_confirm: "Delete #{@pet.name}?"}, class: "btn btn-danger" %>
 </div>

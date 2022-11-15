@@ -2,14 +2,17 @@
 <div class="container">
   <h1>Our pets</h1>
   <% @pets.each do |pet| %>
-    <div class="card mb-3" style="width: 350px;">
-      <%= image_tag "https://source.unsplash.com/featured/?pet&#{rand(1..100)}", class: "card-img-top" %>
-      <div class="card-body">
-        <h2 class="card-title"><%= pet.name %></h2>
-        <p class="card-title"><%= pet.species %></p>
-        <p class="card-title"><%= pet.age %></p>
-        <p class="card-title"><%= pet.address %></p>
+      <div class="card mb-3" style="width: 350px;">
+    <%= link_to pet_path(pet) do %>
+        <%= image_tag "https://source.unsplash.com/featured/?pet&#{rand(1..100)}", class: "card-img-top" %>
+    <% end %>
+        <div class="card-body">
+          <h2 class="card-title"><%= pet.name %></h2>
+          <p class="card-title"><%= pet.species %></p>
+          <p class="card-title"><%= pet.age %>years old</p>
+          <p class="card-title">Address: <%= pet.address %></p>
+          <p class="card-title">Found: <%= time_ago_in_words(pet.found_on) %> ago</p>
+        </div>
       </div>
-    </div>
   <% end %>
 </div>
